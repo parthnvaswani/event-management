@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}Login{% endblock %} 
+{% block content %}
+<div style="display: flex;align-items: center;justify-content: center;height: 100vh;margin-top:50px">
+<form method="POST" style="padding:5vh 3vw;border-radius:20px;background:white;font-size:max(15px,1vw);">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="mb-3" style="width:max(300px,18vw);">
+        <label for="{{field.name}}" class="form-label">{{field.label}}</label>
+        <input type="{{field.type}}" class="form-control p-2" name="{{field.name}}">
+    </div>
+  {% endfor %}
+  <div style="display: flex;justify-content: space-between;">
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <a href="/login" class="btn btn--link">Login</a>
+  </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block title %}Login{% endblock %} 
+{% block content %}
+<div style="display: flex;align-items: center;justify-content: center;height: 100vh;margin-top:50px">
+<form method="POST" style="padding:5vh 3vw;border-radius:20px;background:white;font-size:max(15px,1vw);">
+  {% csrf_token %}
+  <div class="mb-3" style="width:max(300px,18vw);">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control p-2" name="username">
+  </div>
+  <div class="mb-3" style="width:max(300px,18vw);">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control p-2" name="password">
+  </div>
+  <div style="display: flex;justify-content: space-between;">
+    <button type="submit" class="btn btn-primary">Login</button>
+    <a href="/sign-up" class="btn btn--link">Sign Up</a>
+  </div>
+</form>
+</div>
+{% endblock %}
