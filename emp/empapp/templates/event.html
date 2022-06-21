@@ -1,0 +1,39 @@
+{%extends 'base.html'%} {%block title%}{%endblock%}
+{%block content%}
+<div style="display:flex;height:100vh;justify-content:center;align-items:center;padding:50px 5px;">
+    <div style="background:white;height:90%;width:100%;text-align:center;padding:10px;">
+        <h1>{{event.ev_name}} <br/>Rs {{event.ev_price}}/-</h1>
+        <h4>{{event.ev_description}}</h4>
+        <div style="display: flex;justify-content: center;">
+        <form method="POST" style="padding:5vh 3vw;border-radius:20px;background:white;font-size:max(20px,1vw);">
+            {% csrf_token %}
+            <div class="mb-3" style="width:max(300px,18vw);">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" name="date" style="padding:10px;">
+            </div><br/>
+            <div class="mb-3" style="width:max(300px,18vw);">
+                <label for="location" class="form-label">location</label>
+                <select class="form-control" name="location" style="padding:10px;">
+                    <option value="" disabled selected>-----select-----</option>
+                    <option value="Lilleria">Lilleria</option>
+                    <option value="Banayan Paradise">Banayan Paradise</option>
+                    <option value="Zenith">Zenith</option>
+                    <option value="KL Patel">KL Patel</option>
+                    <option value="Kashi da">Kashi da</option>
+                    <option value="Kailash">Kailash</option>
+                    <option value="Avsar Greens">Avsar Greens</option>
+                    <option value="Atithya">Atithya</option>
+                    <option value="Shivam">Shivam</option>
+                    <option value="Rudraksh">Rudraksh</option>
+                    <option value="Vinayak">Vinayak</option>
+                </select>
+            </div><br/>
+            <div style="display: flex;justify-content: space-between;">
+                <button type="submit" class="btn btn-primary">Book</button>
+                <a href="/" class="btn btn--link">Back</a>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+{%endblock%}
